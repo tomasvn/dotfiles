@@ -3,5 +3,6 @@
   { "key": "ctrl+m", "command": "editor.action.toggleMinimap" },
   { "key": "alt+l", "command": "editor.action.toggleTabFocusMode" },
   { "key": "alt+shift+k", "command": "workbench.action.terminal.focusNext" },
-  { "key": "alt+shift+j", "command": "workbench.action.terminal.focusPrevious" }
+  { "key": "alt+shift+j", "command": "workbench.action.terminal.focusPrevious" },
+  { "key": "ctrl+;", "command": "workbench.action.terminal.kill" }
 ]
