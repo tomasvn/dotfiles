@@ -4,5 +4,6 @@
   { "key": "alt+l", "command": "editor.action.toggleTabFocusMode" },
   { "key": "alt+shift+k", "command": "workbench.action.terminal.focusNext" },
   { "key": "alt+shift+j", "command": "workbench.action.terminal.focusPrevious" },
-  { "key": "ctrl+;", "command": "workbench.action.terminal.kill" }
+  { "key": "ctrl+;", "command": "workbench.action.terminal.kill" },
+  { "key": "ctrl+'", "command": "editor.action.indentationToTabs" },
 ]
