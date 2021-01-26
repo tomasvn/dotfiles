@@ -13,7 +13,7 @@ declare -a arr=(
   esbenp.prettier-vscode
 )
 
-for ext in ${arr[*]}
+for ext in $arr
 do
   code --install-extension $ext --force
 done
