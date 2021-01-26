@@ -2,7 +2,18 @@
 
 # Install VSCode extensions from one sh script
 
-for ext in CoenraadS.bracket-pair-colorizer dbaeumer.vscode-eslint mrmlnc.vscode-scss whatwedo.twig wix.vscode-import-cost stylelint.vscode-stylelint
+# Declare array of extensions
+declare -a arr=(
+  "CoenraadS.bracket-pair-colorizer"
+  "dbaeumer.vscode-eslint"
+  "mrmlnc.vscode-scss"
+  "whatwedo.twig"
+  "wix.vscode-import-cost"
+  "stylelint.vscode-stylelint"
+  "esbenp.prettier-vscode"
+)
+
+for ext in 
 do
-  code --install-extension $ext --force
+  code --install-extension ${ext[*]} --force
 done
