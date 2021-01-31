@@ -1,8 +1,18 @@
+echo "  _____                   .__        __          "
+echo "_/ ____\__________   ____ |__| _____/  |_ ___.__."
+echo "\   __\/  ___/  _ \_/ ___\|  |/ __ \   __<   |  |"
+echo " |  |  \___ (  <_> )  \___|  \  ___/|  |  \___  |"
+echo " |__| /____  >____/ \___  >__|\___  >__|  / ____|"
+echo "           \/           \/        \/      \/     "
+echo "                                                 "
+
 alias ~='cd ~'
 alias cmd='cd ~ && cat .bashrc'
 alias c='clear'
 alias ..='cd ..'
-alias ....='cd ../../'
+alias .2='cd ../../'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
 alias ga='git add -A'
 alias gs='git status'
 alias gcm='git commit'
