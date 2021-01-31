@@ -6,4 +6,5 @@
   { "key": "alt+shift+j", "command": "workbench.action.terminal.focusPrevious" },
   { "key": "ctrl+;", "command": "workbench.action.terminal.kill" },
   { "key": "ctrl+'", "command": "editor.action.indentationToTabs" },
+  { "key": "alt+;", "command": "deleteLeft" }
 ]
