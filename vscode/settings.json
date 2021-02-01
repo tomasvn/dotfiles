@@ -3,5 +3,8 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll.stylelint": true
 	},
-	"prettier.requireConfig": true
+	"prettier.requireConfig": true,
+	"workbench.editor.wrapTabs": true,
+	"files.defaultLanguage": "markdown",
+	"editor.renderWhitespace": "all"
 }
