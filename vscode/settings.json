@@ -1,8 +1,10 @@
 {
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
-		"source.fixAll.stylelint": true
+		"source.fixAll.stylelint": true,
+		"source.fixAll.eslint": true
 	},
+	"eslint.validate": ["javascript"],
 	"prettier.requireConfig": true,
 	"workbench.editor.wrapTabs": true,
 	"files.defaultLanguage": "markdown",
