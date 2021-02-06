@@ -10,5 +10,5 @@
 	{ "key": "alt+o", "when": "!sideBarFocus", "command": "workbench.action.focusSideBar" },
 	{ "key": "alt+o", "when": "sideBarFocus", "command": "workbench.action.focusActiveEditorGroup" },
 	{ "key": "alt+shift+k", "command": "workbench.action.terminal.focusNext" },
-	{ "key": "alt+shift+j", "command": "workbench.action.terminal.focusPrevious" },
+	{ "key": "alt+shift+j", "command": "workbench.action.terminal.focusPrevious" }
 ]
