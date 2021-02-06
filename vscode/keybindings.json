@@ -7,5 +7,7 @@
   { "key": "ctrl+;", "command": "workbench.action.terminal.kill" },
   { "key": "ctrl+'", "command": "editor.action.indentationToTabs" },
   { "key": "alt+;", "command": "deleteLeft" },
-  { "key": "alt+o", "command": "workbench.action.focusSidebar" }
+  { "key": "alt+o", "command": "-workbench.action.focusSideBar" },
+  { "key": "alt+o", "when": "!sideBarFocus", "command": "workbench.action.focusSideBar" },
+  { "key": "alt+o", "when": "sideBarFocus", "command": "workbench.action.focusActiveEditorGroup" }
 ]
