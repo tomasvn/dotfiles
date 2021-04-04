@@ -11,6 +11,7 @@ declare -a arr=(
   wix.vscode-import-cost
   stylelint.vscode-stylelint
   esbenp.prettier-vscode
+  VSpaceCode.whichkey
 )
 
 for ext in $arr
