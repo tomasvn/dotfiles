@@ -4,7 +4,6 @@
 
 # Declare array of extensions
 declare -a arr=(
-  CoenraadS.bracket-pair-colorizer
   dbaeumer.vscode-eslint
   mrmlnc.vscode-scss
   whatwedo.twig
