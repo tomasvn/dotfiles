@@ -5,7 +5,7 @@
 		"source.fixAll.eslint": true
 	},
 	"eslint.validate": ["javascript"],
-  "stylelint.validate": ["css", "scss"],
+  	"stylelint.validate": ["css", "scss"],
 	"prettier.requireConfig": true,
 	"workbench.editor.wrapTabs": true,
 	"files.defaultLanguage": "markdown",
