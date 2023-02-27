@@ -11,6 +11,7 @@ declare -a arr=(
   stylelint.vscode-stylelint
   esbenp.prettier-vscode
   VSpaceCode.whichkey
+  Orta.vscode-twoslash-queries
 )
 
 for ext in $arr
