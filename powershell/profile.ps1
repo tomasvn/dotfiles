@@ -1,11 +1,3 @@
-# Get current profile of pws and open config in vscode
-# 1. Run this in pws -> code $PROFILE.CurrentUserAllHosts
-# 2. Load config from folder
-# - . $env:USERPROFILE\<config_folder_path>\<file>.ps1
-#
-# 2.1 Or create your profile by going into folder we get from $PROFILE.CurrentUserAllHosts
-# and create profile.ps1 file by running NewItem -ItemType File -Path "./profile.ps1"
-
 # Powershell
 Set-Alias c clear
 Set-Alias ll ls

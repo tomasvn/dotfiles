@@ -1,10 +1,8 @@
-echo "  _____                   .__        __          "
-echo "_/ ____\__________   ____ |__| _____/  |_ ___.__."
-echo "\   __\/  ___/  _ \_/ ___\|  |/ __ \   __<   |  |"
-echo " |  |  \___ (  <_> )  \___|  \  ___/|  |  \___  |"
-echo " |__| /____  >____/ \___  >__|\___  >__|  / ____|"
-echo "           \/           \/        \/      \/     "
-echo "                                                 "
+BASHRC_CONFIG_DIR=~/.bashrc
+
+if [ -f "$BASHRC_CONFIG_DIR" ]; then
+    . "$BASHRC_CONFIG_DIR/.bashrc"
+fi
 
 # Nix
 alias ~='cd ~'
