@@ -4,10 +4,14 @@
 		"source.fixAll.stylelint": true,
 		"source.fixAll.eslint": true
 	},
-	"eslint.validate": ["javascript"],
+	"eslint.validate": ["javascript", "typsecript"],
 	"stylelint.validate": ["css", "scss"],
 	"prettier.requireConfig": true,
 	"workbench.editor.wrapTabs": true,
-	"files.defaultLanguage": "markdown",
-	"editor.renderWhitespace": "all"
+	"editor.renderWhitespace": "all",
+	"editor.bracketPairColorization.enabled": true,
+	"editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+	"editor.linkedEditing": true,
+	"html.autoClosingTags": true,
+	"typescript.updateImportsOnFileMove.enabled": "always",
 }
