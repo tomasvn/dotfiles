@@ -1,3 +1,4 @@
+# Load bashrc from folder
 BASHRC_CONFIG_DIR=~/.bashrc
 
 if [ -f "$BASHRC_CONFIG_DIR" ]; then
