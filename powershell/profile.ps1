@@ -1,11 +1,11 @@
 # Powershell
 Set-Alias c clear
 Set-Alias ll ls
-function web { "D:\web_projects\" }
-function .1 { "cd .." }
-function .2 { "cd ../../" }
-function .3 { "cd ../../../" }
-function .4 { "cd ../../../../" }
+function web { cd D:\web_projects\ }
+function up { cd .. }
+function up2 { cd ../../ }
+function up3 { cd ../../../ }
+function up4 { cd ../../../../ }
 
 # Git
 function ga { git add -A }
