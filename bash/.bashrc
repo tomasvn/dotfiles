@@ -1,5 +1,5 @@
 # Load bashrc from folder
-BASHRC_CONFIG_DIR=~/.bashrc
+BASHRC_CONFIG_DIR=~/
 
 if [ -f "$BASHRC_CONFIG_DIR" ]; then
     . "$BASHRC_CONFIG_DIR/.bashrc"
