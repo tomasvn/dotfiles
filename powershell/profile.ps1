@@ -15,9 +15,10 @@ function gcm { git commit -m $args[0] }
 function gu { git push }
 function guu { git push -u origin HEAD }
 function gp { git pull }
+function grh { git reset --hard }
 function gf { git fetch -a }
 function gfp { git fetch -p }
-function gl { git log }
+function gl { git log --abbrev-commit }
 function gd { git diff }
 function gds { git diff --staged }
 function gll { git log --all --decorate --oneline --graph }
@@ -29,7 +30,6 @@ function gss { git status --short }
 function gsh { git show $args[0] }
 
 # Projects
-function pni { pnpm install }
 function pns { pnpm run start }
 function pnb { pnpm run build }
 function sb { pnpm run storybook }
