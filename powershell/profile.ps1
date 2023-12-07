@@ -3,14 +3,14 @@
 # 2. Load config from folder
 # - . $env:USERPROFILE\<config_folder_path>\<file>.ps1
 
-# Aliases
-Set-Alias web ''
+# Powershell
 Set-Alias c clear
 Set-Alias ll ls
-Set-Alias -Name .. -Value 'cd ..'
-Set-Alias -Name .2 -Value 'cd ../../'
-Set-Alias -Name .3 -Value 'cd ../../../'
-Set-Alias -Name .4 -Value 'cd ../../../../'
+function web { "D:\web_projects\" }
+function .1 { "cd .." }
+function .2 { "cd ../../" }
+function .3 { "cd ../../../" }
+function .4 { "cd ../../../../" }
 
 # Git
 function ga { git add -A }
