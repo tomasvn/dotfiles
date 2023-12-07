@@ -6,6 +6,7 @@ function up { cd .. }
 function up2 { cd ../../ }
 function up3 { cd ../../../ }
 function up4 { cd ../../../../ }
+function rmraf { del -Recurse -Force $args[0] }
 
 # Git
 function ga { git add -A }
