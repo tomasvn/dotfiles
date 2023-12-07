@@ -30,6 +30,7 @@ function gss { git status --short }
 function gsh { git show $args[0] }
 
 # Projects
+function pni { pnpm install }
 function pns { pnpm run start }
 function pnb { pnpm run build }
 function sb { pnpm run storybook }
