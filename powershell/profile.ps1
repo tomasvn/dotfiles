@@ -1,4 +1,6 @@
 # Powershell
+$path=$profile.CurrentUserAllHosts
+
 Set-Alias c clear
 Set-Alias ll ls
 function web { cd D:\web_projects\ }
@@ -7,6 +9,9 @@ function up2 { cd ../../ }
 function up3 { cd ../../../ }
 function up4 { cd ../../../../ }
 function rmraf { del -Recurse -Force $args[0] }
+function pws-edit { Start code $path }
+function pws-conf { Get-Content -Path $path }
+function pws-conf-path { $path }
 
 # Git
 function ga { git add -A }
