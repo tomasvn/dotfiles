@@ -3,6 +3,7 @@ $path=$profile.CurrentUserAllHosts
 
 Set-Alias c clear
 Set-Alias ll ls
+Set-Alias version $PSVersionTable
 function web { cd D:\web_projects\ }
 function up { cd .. }
 function up2 { cd ../../ }
