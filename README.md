@@ -11,6 +11,11 @@ Different configuration files
 and create profile.ps1 file by running `NewItem -ItemType File -Path "./profile.ps1"`
 - 4. To run scripts - you need to execute `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`, or it will error out
 
+### Pws plugins
+- https://github.com/PowerShell/PSReadLine - follow install guide
+- `Set-PSReadLineOption -PredictionSource History`
+- `Set-PSReadLineOption -PredictionViewStyle ListView`
+
 ## Bash
 
 - If you want to load config from custom folder,
