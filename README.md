@@ -15,6 +15,7 @@ and create profile.ps1 file by running `NewItem -ItemType File -Path "./profile.
 - https://github.com/PowerShell/PSReadLine - follow install guide
 - `Set-PSReadLineOption -PredictionSource History`
 - `Set-PSReadLineOption -PredictionViewStyle ListView`
+- [PSReadLine Options](https://learn.microsoft.com/en-us/powershell/module/psreadline/get-psreadlineoption?view=powershell-7.4)
 
 ## Bash
 
