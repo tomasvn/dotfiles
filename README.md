@@ -8,7 +8,7 @@ Different configuration files
 - 2. Load config from folder
     - `. $env:USERPROFILE\<config_folder_path>\<file>.ps1`
 - 3. Or create your profile by going into folder we get from `$PROFILE.CurrentUserAllHosts`
-and create profile.ps1 file by running `NewItem -ItemType File -Path "./profile.ps1"`
+and create profile.ps1 file by running `NewItem -ItemType File -Path $PROFILE -Force`
 - 4. To run scripts - you need to execute `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`, or it will error out
 
 ### Pws plugins

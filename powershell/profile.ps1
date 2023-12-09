@@ -14,6 +14,7 @@ function pws-conf { Get-Content -Path $path }
 function pws-conf-path { $path }
 
 # Git
+function gm { git merge $args[0] }
 function ga { git add -A }
 function gs { git status }
 function gsw { git switch - }

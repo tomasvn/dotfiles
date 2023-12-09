@@ -16,6 +16,7 @@ alias .4='cd ../../../..'
 alias bash-edit='be() { cd ~ && code .bashrc; }; be'
 
 # Git
+alias gm='f() { git merge "$1" }; f'
 alias ga='git add -A'
 alias gs='git status'
 alias gsw='git switch -'
