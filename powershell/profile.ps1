@@ -15,11 +15,11 @@ function pws-conf { Get-Content -Path $path }
 function pws-conf-path { $path }
 
 # Git
-function gm { git merge $args[0] }
+function gm { git merge $args }
 function ga { git add -A }
 function gs { git status }
 function gsw { git switch - }
-function gcm { git commit -m $args[0] }
+function gcm { git commit -m $args }
 function gu { git push }
 function guu { git push -u origin HEAD }
 function gp { git pull }
@@ -30,12 +30,12 @@ function gl { git log --abbrev-commit }
 function gd { git diff }
 function gds { git diff --staged }
 function gll { git log --all --decorate --oneline --graph }
-function gc { git checkout $args[0] }
+function gc { git checkout $args }
 function gb { git branch }
 function gbr { git branch -r }
 function gsl { git stash list }
 function gss { git status --short }
-function gsh { git show $args[0] }
+function gsh { git show $args }
 
 # Projects
 function pni { pnpm install }
