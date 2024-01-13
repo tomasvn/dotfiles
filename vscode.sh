@@ -6,7 +6,6 @@
 declare -a arr=(
 	dbaeumer.vscode-eslint
 	SomewhatStationery.some-sass
-	whatwedo.twig
 	wix.vscode-import-cost
 	stylelint.vscode-stylelint
 	esbenp.prettier-vscode
