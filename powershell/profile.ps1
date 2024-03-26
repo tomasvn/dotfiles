@@ -3,15 +3,16 @@ $path=$profile.CurrentUserAllHosts
 
 Set-Alias c clear
 Set-Alias ll ls
-function web { cd D:\web-projects\ }
-function up { cd .. }
-function up2 { cd ../../ }
-function up3 { cd ../../../ }
-function up4 { cd ../../../../ }
-function rmraf { del -Recurse -Force @args }
-function pws-edit { Start code $path }
-function pws-conf { Get-Content -Path $path }
-function pws-conf-path { $path }
+
+function web { Set-Location D:\web-projects\ }
+function up { Set-Location .. }
+function up2 { Set-Location ../../ }
+function up3 { Set-Location ../../../ }
+function up4 { Set-Location ../../../../ }
+function rmraf { Remove-Item -Recurse -Force @args }
+function pwsedit { Start-Process code $path }
+function pwsget { Get-Content -Path $path }
+function pwsconf { $path }
 
 # Git
 function gm { git merge @args }

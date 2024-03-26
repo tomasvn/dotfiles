@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install VSCode extensions from one sh script
+# https://github.com/CoreyMSchafer/dotfiles/blob/master/vscode.sh
 
 # Declare array of extensions
 declare -a arr=(
@@ -10,11 +11,24 @@ declare -a arr=(
 	stylelint.vscode-stylelint
 	esbenp.prettier-vscode
 	Orta.vscode-twoslash-queries
-	Vue.vscode-typescript-vue-plugin
 	Vue.volar
+	teabyii.ayu
+	eamodio.gitlens
+	pflannery.vscode-versionlens
+	PKief.material-icon-theme
 )
+
+extensions=$(code --list-extensions)
 
 for ext in $arr
 do
-	code --install-extension $ext --force
+	# Run pattern matching with flag quite and ignore give case
+	if echo "$extensions" | grep -qi "^$ext"; then
+		echo "$extensions is already installed. Skipping..."
+	else
+		echo "Installing $extensions..."
+		code --install-extension "$ext"
+	fi
 done
+
+echo "VS Code extensions have been installed."
