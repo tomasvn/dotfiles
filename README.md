@@ -4,10 +4,11 @@ Different configuration files
 ## Installation
 
 - Open pws as administator
-- Run `install.ps1` script
-    - It install `chocolatey` pkg manager
-- Run `install-pkgs.ps1`
-    - It will install dev pkgs
+- Go to folder `powershell`
+    - 1. Run `install-pkg-manager.ps1`
+    - 2. Run `install-pkg.ps1`
+    - 3. Run `setup-localhost.ps1`
+    - 4. Copy `profile.ps1`
 
 <details open>
 <summary><strong>Packages</strong></summary>
