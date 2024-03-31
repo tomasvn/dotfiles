@@ -1,8 +1,10 @@
-$shellScripts = ".\powershell\install-pkg-manager.ps1", ".\powershell\install-pkgs.ps1", ".\powershell\setup-localhost.ps1"
+$shellScripts = ".\powershell\setup-pkg-manager.ps1", ".\powershell\setup-pkgs.ps1", ".\powershell\setup-localhost.ps1"
 
 try {
     foreach ($script in $shellScripts) {
-        Invoke-Expression -Command $script
+        if ($script -like "*setup*") {
+            Invoke-Expression -Command $script
+        }
     }
 }
 catch {

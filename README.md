@@ -6,8 +6,8 @@ Different configuration files
 - Open pws as administator
 - Run `install.ps1`
     - It will run scripts from folder `powershell`
-        1. Run `install-pkg-manager.ps1`
-        2. Run `install-pkg.ps1`
+        1. Run `setup-pkg-manager.ps1`
+        2. Run `setup-pkg.ps1`
         3. Run `setup-localhost.ps1`
 - Go to folder `powershell`
     - Copy `profile.ps1`
