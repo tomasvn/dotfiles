@@ -1,9 +1,0 @@
-[color "branch"]
-	remote = yellow
-[push]
-	autoSetupRemote = true
-[pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
-[alias]
-	merge-into = !sh -c '_CURRENT_BRANCH=$(git symbolic-ref --short HEAD) && git checkout $1 && git merge $_CURRENT_BRANCH && git checkout $_CURRENT_BRANCH' -
