@@ -1,17 +1,17 @@
 {
-	"editor.formatOnSave": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.stylelint": true,
-		"source.fixAll.eslint": true
-	},
-	"eslint.validate": ["javascript", "typsecript"],
-	"stylelint.validate": ["css", "scss"],
-	"prettier.requireConfig": true,
-	"workbench.editor.wrapTabs": true,
-	"editor.renderWhitespace": "all",
-	"editor.bracketPairColorization.enabled": true,
-	"editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-	"editor.linkedEditing": true,
-	"html.autoClosingTags": true,
-	"typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": true,
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript", "typsecript"],
+    "stylelint.validate": ["css", "scss"],
+    "prettier.requireConfig": true,
+    "workbench.editor.wrapTabs": true,
+    "editor.renderWhitespace": "all",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.linkedEditing": true,
+    "html.autoClosingTags": true,
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }
