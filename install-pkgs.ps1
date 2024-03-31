@@ -1,7 +1,7 @@
 # Add packages from https://community.chocolatey.org/packages
 # Add only verified packages as the code below will install it
 # without user confirm
-$Packages = 'googlechrome', 'git', 'vscode', 'spotify', 'powertoys', 'devtoys', 'powershell-core', 'visualstudio2022enterprise', 'lazygit'
+$Packages = 'googlechrome', 'git', 'vscode', 'spotify', 'powertoys', 'devtoys', 'powershell-core', 'visualstudio2022enterprise', 'lazygit', 'chezmoi'
 
 $Packages | ForEach-Object {
     # Run command choco install

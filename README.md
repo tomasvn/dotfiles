@@ -1,6 +1,30 @@
 # dotfiles
 Different configuration files
 
+## Installation
+
+- Open pws as administator
+- Run `install.ps1` script
+    - It install `chocolatey` pkg manager
+- Run `install-pkgs.ps1`
+    - It will install dev pkgs
+
+<details open>
+<summary><strong>Packages</strong></summary>
+
+* Google Chrome
+* Git
+* VSCode
+* Spotify
+* PowerToys
+* DevToys
+* PowerShell Core
+* Visual Studio 2022
+* Lazygit
+* Chezmoi
+
+</details>
+
 ## Pws
 
 - Get current profile of pws and open config in vscode
