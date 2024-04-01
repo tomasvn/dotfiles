@@ -12,7 +12,8 @@ $Packages = @(
     'visualstudio2022enterprise'
     'lazygit'
     'chezmoi'
-    'dotnet-6.0-aspnetruntime'
+    'dotnet-6.0-aspnetruntime',
+    'cmder'
 )
 
 $Packages | ForEach-Object {
