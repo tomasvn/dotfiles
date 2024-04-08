@@ -1,11 +1,11 @@
 $path = ".\powershell\scripts"
 
 $shellScripts = @(
-    "$path\setup-profile.ps1",
     "$path\setup-pkg-manager.ps1",
     "$path\setup-pkgs.ps1",
-    "$path\setup-git.ps1",
-    "$path\setup-localhost.ps1"
+    "$path\setup-pws.ps1",
+    "$path\setup-localhost.ps1",
+    "$path\setup-profile.ps1"
 )
 
 try {

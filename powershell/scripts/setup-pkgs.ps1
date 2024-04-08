@@ -13,7 +13,8 @@ $Packages = @(
     'lazygit'
     'chezmoi'
     'dotnet-6.0-aspnetruntime',
-    'cmder'
+    'cmder',
+    'poshgit'
 )
 
 $Packages | ForEach-Object {
