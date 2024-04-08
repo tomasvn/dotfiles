@@ -9,7 +9,8 @@ Different configuration files
         1. Run `setup-profile.ps1`
         2. Run `setup-pkg-manager.ps1`
         3. Run `setup-pkgs.ps1`
-        4. Run `setup-localhost.ps1`
+        4. Run `setup-git.ps1`
+        5. Run `setup-localhost.ps1`
 
 <details open>
 <summary><strong>Packages</strong></summary>
