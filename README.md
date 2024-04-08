@@ -5,7 +5,7 @@ Different configuration files
 
 - Open pws as administator
 - Run `install.ps1`
-    - It will run scripts from folder `powershell`
+    - It will run scripts from folder `powershell\scripts`
         1. Run `setup-pkg-manager.ps1`
         2. Run `setup-pkg.ps1`
         3. Run `setup-localhost.ps1`
