@@ -1,5 +1,5 @@
 $source = ".\profile.ps1"
-$destination = "$env:USERPROFILE\profile.ps1"
+$destination = [System.Environment]::GetFolderPath('MyDocuments') + "\WindowsPowerShell\profile.ps1"
 
 # Check if the source file exists
 if (Test-Path $source) {

@@ -6,11 +6,10 @@ Different configuration files
 - Open pws as administator
 - Run `install.ps1`
     - It will run scripts from folder `powershell\scripts`
-        1. Run `setup-pkg-manager.ps1`
-        2. Run `setup-pkg.ps1`
-        3. Run `setup-localhost.ps1`
-- Go to folder `powershell`
-    - Copy `profile.ps1`
+        1. Run `setup-profile.ps1`
+        2. Run `setup-pkg-manager.ps1`
+        3. Run `setup-pkgs.ps1`
+        4. Run `setup-localhost.ps1`
 
 <details open>
 <summary><strong>Packages</strong></summary>
@@ -27,16 +26,6 @@ Different configuration files
 * Chezmoi
 
 </details>
-
-## Pws
-
-- Get current profile of pws and open config in vscode
-- 1. Run this in pws -> `code $PROFILE.CurrentUserAllHosts`
-- 2. Load config from folder
-    - `. $env:USERPROFILE\<config_folder_path>\<file>.ps1`
-- 3. Or create your profile by going into folder we get from `$PROFILE.CurrentUserAllHosts`
-and create profile.ps1 file by running `NewItem -ItemType File -Path $PROFILE -Force`
-- 4. To run scripts - you need to execute `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`, or it will error out
 
 ### Pws plugins
 - https://github.com/PowerShell/PSReadLine - follow install guide
