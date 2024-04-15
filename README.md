@@ -25,6 +25,7 @@ Different configuration files
 * Visual Studio 2022
 * Lazygit
 * Chezmoi
+* Cmder
 
 </details>
 
