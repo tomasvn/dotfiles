@@ -14,11 +14,11 @@ $file = "$env:temp\install.ps1"
 powershell.exe -ExecutionPolicy ByPass -File $file -Verbose
 ```
 - It will run scripts from folder `powershell\scripts`
-      1. Run `setup-pkg-manager.ps1`
-      2. Run `setup-pkgs.ps1`
-      3. Run `setup-pws.ps1`
-      4. Run `setup-profile.ps1`
-      5. Run `setup-localhost.ps1`
+1. Run `setup-pkg-manager.ps1`
+2. Run `setup-pkgs.ps1`
+3. Run `setup-pws.ps1`
+4. Run `setup-profile.ps1`
+5. Run `setup-localhost.ps1`
 
 <details open>
 <summary><strong>Packages</strong></summary>
