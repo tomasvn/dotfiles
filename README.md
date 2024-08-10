@@ -6,12 +6,7 @@ Different configuration files
 - Open pws as administator
 - Copy and paste the code below into your PowerShell terminal to get your Windows machine ready
 ```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$url = "https://raw.githubusercontent.com/tomasvn/dotfiles/main/install.ps1"
-$file = "$env:temp\install.ps1"
-
-(New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
-powershell.exe -ExecutionPolicy ByPass -File $file -Verbose
+Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tomasvn/dotfiles/main/install.ps1").Content
 ```
 - It will run scripts from folder `powershell\scripts`
 1. Run `setup-pkg-manager.ps1`
