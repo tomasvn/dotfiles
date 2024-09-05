@@ -1,7 +1,7 @@
 # Add packages from https://community.chocolatey.org/packages
 # Add only verified packages as the code below will install it
 # without user confirm
-$Packages = @(
+$packages = @(
     'googlechrome'
     'git'
     'vscode'
@@ -11,13 +11,13 @@ $Packages = @(
     'powershell-core'
     'visualstudio2022enterprise'
     'lazygit'
-    'chezmoi'
+    # 'chezmoi'
     'dotnet-6.0-aspnetruntime',
     'cmder',
     'poshgit'
 )
 
-$Packages | ForEach-Object {
+$packages | ForEach-Object {
     # Run command choco install
     # with flag -y (--yes)
     # $_ is current item in loop

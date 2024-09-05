@@ -6,7 +6,7 @@ Different configuration files
 - Open pws as administator
 - Copy and paste the code below into your PowerShell terminal to get your Windows machine ready
 ```powershell
-Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tomasvn/dotfiles/main/install.ps1").Content
+Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tomasvn/dotfiles/main/full-script-install.ps1").Content
 ```
 - It will run scripts from folder `powershell\scripts`
 1. Run `setup-pkg-manager.ps1`
@@ -27,7 +27,7 @@ Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tom
 * PowerShell Core
 * Visual Studio 2022
 * Lazygit
-* Chezmoi
+* ~~Chezmoi~~
 * Cmder
 
 </details>

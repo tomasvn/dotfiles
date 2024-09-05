@@ -1,1 +1,1 @@
-Install-Module PSReadLine -AllowPrerelease -Force
+Install-Module PSReadLine -Force
