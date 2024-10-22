@@ -20,15 +20,17 @@ declare -a arr=(
 
 extensions=$(code --list-extensions)
 
-for ext in $arr
+# Define color codes
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+for ext in "${arr[@]}"
 do
-    # Run pattern matching with flag quite and ignore give case
+    # Run pattern matching with flag quite and ignore case
     if echo "$extensions" | grep -qi "^$ext"; then
-        echo "$extensions is already installed. Skipping..."
+        echo -e "${GREEN}$ext is already installed. Skipping...${NC}"
     else
-        echo "Installing $extensions..."
+        echo "Installing $ext..."
         code --install-extension "$ext"
     fi
 done
-
-echo "VS Code extensions have been installed."

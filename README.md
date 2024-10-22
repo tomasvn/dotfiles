@@ -3,8 +3,12 @@ Different configuration files
 
 ## Installation
 
+### Powershell
+
+- If you don't want to download the repo you can run the code, see below
 - Open pws as administator
 - Copy and paste the code below into your PowerShell terminal to get your Windows machine ready
+
 ```powershell
 Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tomasvn/dotfiles/main/full-script-install.ps1").Content
 ```
@@ -14,6 +18,13 @@ Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tom
 3. Run `setup-pws.ps1`
 4. Run `setup-profile.ps1`
 5. Run `setup-localhost.ps1`
+
+### Shell
+
+- Copy and paste the code below into your bash terminal to prepare vscode, and shell profile
+```shell
+bash <(curl -s https://raw.githubusercontent.com/tomasvn/dotfiles/main/full-script-install.sh)
+```
 
 <details open>
 <summary><strong>Packages</strong></summary>
