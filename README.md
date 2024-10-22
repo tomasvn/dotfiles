@@ -1,5 +1,8 @@
 # dotfiles
-Different configuration files
+
+- Different configuration files
+
+<br />
 
 ## Installation
 
@@ -27,7 +30,7 @@ bash <(curl -s https://raw.githubusercontent.com/tomasvn/dotfiles/main/full-scri
 ```
 
 <details open>
-<summary><strong>Packages</strong></summary>
+<summary><strong>Chocolatey packages</strong></summary>
 
 * Google Chrome
 * Git
