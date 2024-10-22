@@ -23,6 +23,23 @@ $packages = @(
     'poshgit'
 )
 
+# Function to prompt for installation
+function Prompt-InstallPackage {
+    param (
+        [string]$package
+    )
+
+    $response = Read-Host -Prompt "Do you want to install $package? (y/n)"
+    if ($response -eq 'y') {
+        Write-Host "Installing $package..."
+        choco install -y $package
+        $installPath = (Get-Command $package).Source
+        Write-Host "Package $package installed at: $installPath"
+    } else {
+        Write-Host "Skipping $package..."
+    }
+}
+
 $source = ".\profile.ps1"
 $destination = [System.Environment]::GetFolderPath('MyDocuments') + "\WindowsPowerShell\profile.ps1"
 
@@ -43,13 +60,20 @@ else {
     Write-Host "Entry already exists: $entry"
 }
 
-$packages | ForEach-Object {
-    # Run command choco install
-    # with flag -y (--yes)
-    # $_ is current item in loop
-    choco install -y $_
-    $installPath = (Get-Command $_).Source
-    Write-Host "Package $_ installed at: $installPath"
+# Prompt to install all packages
+$responseAll = Read-Host -Prompt "Do you want to install all packages? (y/n)"
+if ($responseAll -eq 'y') {
+    foreach ($package in $packages) {
+        Write-Host "Installing $package..."
+        choco install -y $package
+        $installPath = (Get-Command $package).Source
+        Write-Host "Package $package installed at: $installPath"
+    }
+} else {
+    # Loop through each package and prompt for installation
+    foreach ($package in $packages) {
+        Prompt-InstallPackage -package $package
+    }
 }
 
 # Check if the source file exists
