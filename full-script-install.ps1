@@ -28,7 +28,7 @@ $destination = [System.Environment]::GetFolderPath('MyDocuments') + "\WindowsPow
 
 # Set the IP and hostname
 $ip = "127.0.0.1"
-$hostname = "mylocalhost"
+$hostname = Read-Host -Prompt "Enter the hostname"
 
 # Create the entry
 $entry = "$ip`t$hostname"
