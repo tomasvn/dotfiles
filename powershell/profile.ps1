@@ -4,7 +4,7 @@ $path=$profile.CurrentUserAllHosts
 Set-Alias c clear
 Set-Alias ll ls
 
-function web { Set-Location D:\web-projects\ }
+function web { Set-Location @args }
 function up { Set-Location .. }
 function up2 { Set-Location ../../ }
 function up3 { Set-Location ../../../ }

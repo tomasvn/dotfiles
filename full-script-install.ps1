@@ -1,5 +1,15 @@
 Install-Module PSReadLine -Force
 
+# Check and install chocolatey
+if (Get-Command choco.exe -ErrorAction SilentlyContinue) {
+    Write-Host "Chocolatey is already installed."
+}
+else {
+    Write-Host "Installing Chocolatey..."
+    Set-ExecutionPolicy Bypass -Scope Process -Force
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+}
+
 # Run PowerShell as Administrator
 # Set the Hosts file path
 $hostsPath = "$env:windir\System32\drivers\etc\hosts"
@@ -21,7 +31,7 @@ $packages = @(
 )
 
 # Function to prompt for installation
-function Prompt-InstallPackage {
+function Request-InstallPackage {
     param (
         [string]$package
     )
@@ -32,12 +42,13 @@ function Prompt-InstallPackage {
         choco install -y $package
         $installPath = (Get-Command $package).Source
         Write-Host "Package $package installed at: $installPath"
-    } else {
+    }
+    else {
         Write-Host "Skipping $package..."
     }
 }
 
-$source = ".\profile.ps1"
+$source = ".\powershell\profile.ps1"
 $destination = [System.Environment]::GetFolderPath('MyDocuments') + "\WindowsPowerShell\profile.ps1"
 
 # Set the IP and hostname
@@ -66,10 +77,11 @@ if ($responseAll -eq 'y') {
         $installPath = (Get-Command $package).Source
         Write-Host "Package $package installed at: $installPath"
     }
-} else {
+}
+else {
     # Loop through each package and prompt for installation
     foreach ($package in $packages) {
-        Prompt-InstallPackage -package $package
+        Request-InstallPackage -package $package
     }
 }
 
@@ -82,3 +94,6 @@ if (Test-Path $source) {
 else {
     Write-Output "Source file does not exist."
 }
+
+# Copy the profile file after package installations
+Copy-ProfileFile
