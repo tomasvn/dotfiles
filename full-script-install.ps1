@@ -5,19 +5,16 @@ Install-Module PSReadLine -Force
 $hostsPath = "$env:windir\System32\drivers\etc\hosts"
 
 # Add packages from https://community.chocolatey.org/packages
-# Add only verified packages as the code below will install it
-# without user confirm
 $packages = @(
-    'googlechrome'
-    'git'
-    'vscode'
-    'spotify'
-    'powertoys'
-    'devtoys'
-    'powershell-core'
-    'visualstudio2022enterprise'
-    'lazygit'
-    # 'chezmoi'
+    'googlechrome',
+    'git',
+    'vscode',
+    'spotify',
+    'powertoys',
+    'devtoys',
+    'powershell-core',
+    'visualstudio2022enterprise',
+    'lazygit',
     'dotnet-6.0-aspnetruntime',
     'cmder',
     'poshgit'
