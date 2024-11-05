@@ -15,7 +15,7 @@ $packages = @(
 )
 
 # Function to prompt for installation
-function Prompt-InstallPackage {
+function InstallPackage {
     param (
         [string]$package
     )
@@ -24,9 +24,18 @@ function Prompt-InstallPackage {
     if ($response -eq 'y') {
         Write-Host "Installing $package..."
         choco install -y $package
-        $installPath = (Get-Command $package).Source
-        Write-Host "Package $package installed at: $installPath"
-    } else {
+
+        # Check if the command exists
+        $command = Get-Command $package -ErrorAction SilentlyContinue
+        if ($command) {
+            $installPath = $command.Source
+            Write-Host "Package $package installed at: $installPath"
+        }
+        else {
+            Write-Host "Package $package installed, but the command was not found."
+        }
+    }
+    else {
         Write-Host "Skipping $package..."
     }
 }
@@ -35,14 +44,12 @@ function Prompt-InstallPackage {
 $responseAll = Read-Host -Prompt "Do you want to install all packages? (y/n)"
 if ($responseAll -eq 'y') {
     foreach ($package in $packages) {
-        Write-Host "Installing $package..."
-        choco install -y $package
-        $installPath = (Get-Command $package).Source
-        Write-Host "Package $package installed at: $installPath"
+        InstallPackage -package $package
     }
-} else {
+}
+else {
     # Loop through each package and prompt for installation
     foreach ($package in $packages) {
-        Prompt-InstallPackage -package $package
+        InstallPackage -package $package
     }
 }
