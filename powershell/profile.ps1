@@ -3,50 +3,28 @@ $path = $profile.CurrentUserAllHosts
 $customPath = $HOME
 
 # Build functions
-function npi {
-    npm install
-}
+function npi { npm install }
 
-function nps {
-    npm run start
-}
+function nps { npm run start }
 
-function npb {
-    npm run build
-}
+function npb { npm run build }
 
-function pni {
-    pnpm install
-}
+function pni { pnpm install }
 
-function pns {
-    pnpm run start
-}
+function pns { pnpm run start }
 
-function pb {
-    pnpm run build
-}
+function pb { pnpm run build }
 
-function sb {
-    pnpm run storybook
-}
+function sb { pnpm run storybook }
 
 # Git Functions
-function gm {
-    git merge @args
-}
+function gm { git merge @args }
 
-function ga {
-    git add -A
-}
+function ga { git add -A }
 
-function gs {
-    git status
-}
+function gs { git status }
 
-function gsw {
-    git switch -
-}
+function gsw { git switch - }
 
 function gcm {
     param (
@@ -55,76 +33,51 @@ function gcm {
     git commit -m $message
 }
 
-function gu {
-    git push
-}
+function gu { git push }
 
-function guu {
-    git push -u origin HEAD
-}
+function guu { git push -u origin HEAD }
 
-function gp {
-    git pull
-}
+function gp { git pull }
 
-function grh {
-    git reset --hard
-}
+function grh { git reset --hard }
 
-function gf {
-    git fetch -a
-}
+function gf { git fetch -a }
 
-function gfp {
-    git fetch -p
-}
+function gfp { git fetch -p }
 
-function gl {
-    git log --abbrev-commit
-}
+function gl { git log --abbrev-commit }
 
-function gd {
-    git diff
-}
+function gd { git diff }
 
-function gds {
-    git diff --staged
-}
+function gds { git diff --staged }
 
-function gll {
-    git log --all --decorate --oneline --graph
-}
+function gll { git log --all --decorate --oneline --graph }
 
 function gc {
-    git checkout @args
+    param(
+        [string]$checkoutPath
+    )
+    git checkout $checkoutPath
 }
 
-function gb {
-    git branch
-}
+function gb { git branch }
 
-function gbr {
-    git branch -r
-}
+function gbr { git branch -r }
 
-function gst {
-    git stash save
-}
+function gst { git stash save }
 
-function gsp {
-    git stash pop
-}
+function gsp { git stash pop }
 
-function gsl {
-    git stash list
-}
+function gsl { git stash list }
 
-function gss {
-    git status --short
-}
+function gss { git status --short }
 
 function gsh {
-    git show @args
+    param(
+        [string]$logSha
+    )
+
+    git show $logSha
 }
 
 # Navigation Functions
@@ -135,21 +88,13 @@ function web {
     Set-Location $path
 }
 
-function up {
-    Set-Location ..
-}
+function up { Set-Location .. }
 
-function up2 {
-    Set-Location ../../
-}
+function up2 { Set-Location ../../ }
 
-function up3 {
-    Set-Location ../../../
-}
+function up3 { Set-Location ../../../ }
 
-function up4 {
-    Set-Location ../../../../
-}
+function up4 { Set-Location ../../../../ }
 
 function rmaf {
     param (
