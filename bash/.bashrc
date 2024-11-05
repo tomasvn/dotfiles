@@ -44,7 +44,7 @@ alias pn='pnpm'
 alias pni='pnpm i'
 alias pns='pnpm start'
 alias pnb='pnpm build'
-alias np='npm'
+
 alias npi='npm i'
 alias nb='npm run build'
 alias ns='npm run start'

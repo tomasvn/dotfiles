@@ -28,6 +28,7 @@ Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tom
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/tomasvn/dotfiles/main/full-script-install.sh)
 ```
+- make sure that you adjust path for `web` alias in `powershell/profile.ps1` file, or it will default to `$HOME` folder, unless you specify a string after alias
 
 <details open>
 <summary><strong>Chocolatey packages</strong></summary>
