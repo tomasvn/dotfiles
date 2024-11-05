@@ -18,7 +18,12 @@ function pb { pnpm run build }
 function sb { pnpm run storybook }
 
 # Git Functions
-function gm { git merge @args }
+function gm {
+    param(
+        [string]$mergePath
+    )
+    git merge $mergePath
+}
 
 function ga { git add -A }
 
