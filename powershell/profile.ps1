@@ -207,9 +207,9 @@ function pwsconf {
 }
 
 function c {
-    clear
+    Clear-Host
 }
 
 function ll {
-    ls
+    Get-ChildItem
 }
