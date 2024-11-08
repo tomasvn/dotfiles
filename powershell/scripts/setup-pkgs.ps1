@@ -40,12 +40,32 @@ function InstallPackage {
     }
 }
 
+# Function to install all packages without prompting
+function InstallAllPackages {
+    param (
+        [array]$packages
+    )
+
+    foreach ($package in $packages) {
+        Write-Host "Installing $package..."
+        choco install -y $package
+
+        # Check if the command exists
+        $command = Get-Command $package -ErrorAction SilentlyContinue
+        if ($command) {
+            $installPath = $command.Source
+            Write-Host "Package $package installed at: $installPath"
+        }
+        else {
+            Write-Host "Package $package installed, but the command was not found."
+        }
+    }
+}
+
 # Prompt to install all packages
 $responseAll = Read-Host -Prompt "Do you want to install all packages? (y/n)"
 if ($responseAll -eq 'y') {
-    foreach ($package in $packages) {
-        InstallPackage -package $package
-    }
+    InstallAllPackages -packages $packages
 }
 else {
     # Loop through each package and prompt for installation
