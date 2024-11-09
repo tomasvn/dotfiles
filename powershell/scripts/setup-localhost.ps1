@@ -2,9 +2,17 @@
 # Set the Hosts file path
 $hostsPath = "$env:windir\System32\drivers\etc\hosts"
 
-# Set the IP and hostname
+# Set the IP and default hostname
 $ip = "127.0.0.1"
-$hostname = "mylocalhost"
+$defaultHostname = "mylocalhost"
+
+# Prompt for the hostname
+$hostname = Read-Host -Prompt "Enter hostname (Press Enter to use default: $defaultHostname)"
+
+# Use default hostname if input is blank
+if ([string]::IsNullOrWhiteSpace($hostname)) {
+    $hostname = $defaultHostname
+}
 
 # Create the entry
 $entry = "$ip`t$hostname"
