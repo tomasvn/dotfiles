@@ -62,14 +62,14 @@ function gsw {
     git switch -
 }
 
-function gcm {
+function commit {
     param (
         [string]$message
     )
     git commit -m $message
 }
 
-function gu {
+function push {
     git push
 }
 

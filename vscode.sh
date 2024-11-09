@@ -23,14 +23,15 @@ extensions=$(code --list-extensions)
 # Define color codes
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
+RED='\033[0;31m'
 
 for ext in "${arr[@]}"
 do
     # Run pattern matching with flag quite and ignore case
     if echo "$extensions" | grep -qi "^$ext"; then
-        echo -e "${GREEN}$ext is already installed. Skipping...${NC}"
+        echo -e "${RED}$ext is already installed. Skipping...${NC}"
     else
-        echo "Installing $ext..."
+        echo -e "${GREEN}Installing $ext...${NC}"
         code --install-extension "$ext"
     fi
 done
