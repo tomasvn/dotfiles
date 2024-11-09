@@ -185,7 +185,7 @@ function rmf {
     Remove-Item -Recurse -Force $path
 }
 
-function codeedit {
+function edit {
     param (
         [string]$path
     )
