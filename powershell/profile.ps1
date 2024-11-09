@@ -62,7 +62,7 @@ function gsw {
     git switch -
 }
 
-function commit {
+function cm {
     param (
         [string]$message
     )
