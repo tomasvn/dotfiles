@@ -69,7 +69,7 @@ function cm {
     git commit -m $message
 }
 
-function push {
+function pu {
     git push
 }
 
