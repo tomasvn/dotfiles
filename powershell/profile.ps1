@@ -178,7 +178,7 @@ function up4 {
 # General aliases
 # ================
 
-function rmaf {
+function rmf {
     param (
         [string]$path
     )
