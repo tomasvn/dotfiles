@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Author>Ngoc Tu Nguyen</Author>
+    <Description>Launch dev apps at startup: VS Code, Visual Studio (Admin), Chrome, MS Teams, Spark Mail</Description>
+  </RegistrationInfo>
+  <Triggers>
+    <BootTrigger>
+      <Enabled>true</Enabled>
+    </BootTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <LogonType>InteractiveToken</LogonType>
+      <RunLevel>HighestAvailable</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>false</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <!-- VS Code -->
+    <Exec>
+      <Command>C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe</Command>
+    </Exec>
+    <!-- Visual Studio (Admin) -->
+    <Exec>
+      <Command>C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe</Command>
+    </Exec>
+    <!-- Google Chrome -->
+    <Exec>
+      <Command>C:\Program Files\Google\Chrome\Application\chrome.exe</Command>
+    </Exec>
+    <!-- Microsoft Teams -->
+    <Exec>
+      <Command>%LOCALAPPDATA%\Microsoft\Teams\Update.exe</Command>
+      <Arguments>--processStart "Teams.exe"</Arguments>
+    </Exec>
+    <!-- Spark Mail -->
+    <Exec>
+      <Command>C:\Users\%USERNAME%\AppData\Local\spark\Spark.exe</Command>
+    </Exec>
+  </Actions>
+</Task>
