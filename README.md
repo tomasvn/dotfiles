@@ -67,3 +67,8 @@ bash <(curl -s https://raw.githubusercontent.com/tomasvn/dotfiles/main/full-scri
 - Custom diffing tool - make sure that `diff-so-fancy` is globally installed
 - Stores git related configs
 - branch color, push, pager, alias
+
+## DEV Tasks
+
+- Open `task scheduler` > `Import task...` > locate `dev-tasks.xml`
+- Set up apps that auto-open on start up
