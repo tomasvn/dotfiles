@@ -20,7 +20,7 @@ function InstallPackage {
         [string]$package
     )
 
-    $response = Read-Host -Prompt "Do you want to install $package? (y/n)"
+    $response = Read-Host -Prompt ("Do you want to install {0}? (y/n)" -f $package)
     if ($response -eq 'y') {
         Write-Host "Installing $package..."
         choco install -y $package

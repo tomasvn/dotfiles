@@ -69,7 +69,7 @@ function gcm {
     git commit -m $message
 }
 
-function pu {
+function gu {
     git push
 }
 
@@ -85,7 +85,7 @@ function grh {
     git reset --hard
 }
 
-function gf {
+function gfa {
     git fetch -a
 }
 
@@ -129,7 +129,23 @@ function gst {
 }
 
 function gsp {
-    git stash pop
+    param([string]$stashIndex)
+    if ($stashIndex) {
+        git stash pop "stash@{$stashIndex}"
+    }
+    else {
+        git stash pop
+    }
+}
+
+function gsa {
+    param([string]$stashIndex)
+    if ($stashIndex) {
+        git stash apply "stash@{$stashIndex}"
+    }
+    else {
+        git stash apply
+    }
 }
 
 function gsl {
@@ -159,19 +175,18 @@ function web {
 }
 
 function up {
-    Set-Location ..
-}
+    param(
+        [Parameter(Position=0)]
+        [int]$n = 1
+    )
 
-function up2 {
-    Set-Location ../../
-}
+    if ($n -lt 1) { return }
 
-function up3 {
-    Set-Location ../../../
-}
-
-function up4 {
-    Set-Location ../../../../
+    $dir = Get-Item -LiteralPath (Get-Location)
+    for ($i = 0; $i -lt $n; $i++) {
+        if ($dir.Parent) { $dir = $dir.Parent } else { break }
+    }
+    Set-Location $dir.FullName
 }
 
 # ================

@@ -1,10 +1,11 @@
 {
+    "git.blame.editorDecoration.enabled": true,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.stylelint": true,
-        "source.fixAll.eslint": true
+        "source.fixAll.stylelint": "explicit",
+        "source.fixAll.eslint": "explicit"
     },
-    "eslint.validate": ["javascript", "typsecript"],
+    "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
     "stylelint.validate": ["css", "scss"],
     "prettier.requireConfig": true,
     "workbench.editor.wrapTabs": true,
@@ -13,5 +14,6 @@
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.linkedEditing": true,
     "html.autoClosingTags": true,
-    "typescript.updateImportsOnFileMove.enabled": "always"
+    "js/ts.updateImportsOnFileMove.enabled": "always",
+    "js/ts.autoClosingTags.enabled": true
 }
