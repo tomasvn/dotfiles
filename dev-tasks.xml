@@ -5,9 +5,10 @@
     <Description>Launch dev apps at startup: VS Code, Visual Studio (Admin), Chrome, MS Teams, Spark Mail</Description>
   </RegistrationInfo>
   <Triggers>
-    <BootTrigger>
+    <LogonTrigger>
       <Enabled>true</Enabled>
-    </BootTrigger>
+      <Delay>PT30S</Delay>
+    </LogonTrigger>
   </Triggers>
   <Principals>
     <Principal id="Author">
@@ -35,26 +36,25 @@
     <Priority>7</Priority>
   </Settings>
   <Actions Context="Author">
-    <!-- VS Code -->
     <Exec>
-      <Command>C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe</Command>
+      <Command>cmd.exe</Command>
+      <Arguments>/c start "" "C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe"</Arguments>
     </Exec>
-    <!-- Visual Studio (Admin) -->
     <Exec>
-      <Command>C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe</Command>
+      <Command>cmd.exe</Command>
+      <Arguments>/c start "" "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe"</Arguments>
     </Exec>
-    <!-- Google Chrome -->
     <Exec>
-      <Command>C:\Program Files\Google\Chrome\Application\chrome.exe</Command>
+      <Command>cmd.exe</Command>
+      <Arguments>/c start "" "C:\Program Files\Google\Chrome\Application\chrome.exe"</Arguments>
     </Exec>
-    <!-- Microsoft Teams -->
     <Exec>
-      <Command>%LOCALAPPDATA%\Microsoft\Teams\Update.exe</Command>
-      <Arguments>--processStart "Teams.exe"</Arguments>
+      <Command>cmd.exe</Command>
+      <Arguments>/c start "" "%LOCALAPPDATA%\Microsoft\Teams\Update.exe" --processStart "Teams.exe"</Arguments>
     </Exec>
-    <!-- Spark Mail -->
     <Exec>
-      <Command>C:\Users\%USERNAME%\AppData\Local\spark\Spark.exe</Command>
+      <Command>cmd.exe</Command>
+      <Arguments>/c start "" "C:\Users\%USERNAME%\AppData\Local\spark\Spark.exe"</Arguments>
     </Exec>
   </Actions>
 </Task>
