@@ -11,6 +11,32 @@ $DevToolboxHeader = @'
 Write-Host $DevToolboxHeader -ForegroundColor Cyan
 Write-Host "install.ps1 starting..." -ForegroundColor Green
 
+# Ensure repo profile is autoloaded by user AllHosts profile
+$repoProfile = Join-Path $PSScriptRoot 'powershell\profile.ps1'
+$targetProfile = $PROFILE.CurrentUserAllHosts
+$dotLine = ". '$repoProfile'"
+
+# Create profile folder if needed
+$targetDir = Split-Path $targetProfile -Parent
+if (-not (Test-Path $targetDir)) {
+    New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
+}
+
+# Add dot-source line idempotently
+if (Test-Path $targetProfile) {
+    $content = Get-Content $targetProfile -Raw
+    if ($content -notmatch [regex]::Escape($dotLine)) {
+        Add-Content -Path $targetProfile -Value "`n# Autoload repo profile`n$dotLine`n"
+    }
+} else {
+    Set-Content -Path $targetProfile -Value "# PowerShell profile - autoload repo profile`n$dotLine`n"
+}
+
+# Optional: ensure CurrentUser execution policy allows local profiles
+if ((Get-ExecutionPolicy -Scope CurrentUser) -in @('Undefined','Restricted')) {
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+}
+
 # packages list
 $packages = @(
     'googlechrome', 'git', 'vscode', 'spotify', 'powertoys', 'devtoys',
