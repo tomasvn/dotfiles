@@ -16,6 +16,7 @@ declare -a arr=(
     eamodio.gitlens
     pflannery.vscode-versionlens
     PKief.material-icon-theme
+    GitHub.copilot-chat
 )
 
 extensions=$(code --list-extensions)
