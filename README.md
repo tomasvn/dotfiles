@@ -9,7 +9,7 @@
 ### Powershell
 
 - If you don't want to download the repo you can run the code, see below
-- Open pws as administator
+- Open PowerShell
 - Copy and paste the code below into your PowerShell terminal to get your Windows machine ready
 
 ```powershell
@@ -20,7 +20,7 @@ Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tom
 2. Run `setup-pkgs.ps1`
 3. Run `setup-pws.ps1`
 4. Run `setup-profile.ps1`
-5. Run `setup-localhost.ps1`
+5. Run `setup-localhost.ps1` if you want the hosts-file entry and are running as Administrator
 
 ### Shell
 
@@ -31,7 +31,7 @@ bash <(curl -s https://raw.githubusercontent.com/tomasvn/dotfiles/main/full-scri
 - make sure that you adjust path for `web` alias in `powershell/profile.ps1` file, or it will default to `$HOME` folder, unless you specify a string after alias
 
 <details open>
-<summary><strong>Chocolatey packages</strong></summary>
+<summary><strong>Scoop packages</strong></summary>
 
 * Google Chrome
 * Git
@@ -40,10 +40,10 @@ bash <(curl -s https://raw.githubusercontent.com/tomasvn/dotfiles/main/full-scri
 * PowerToys
 * DevToys
 * PowerShell Core
-* Visual Studio 2022
 * Lazygit
-* ~~Chezmoi~~
 * Cmder
+
+Visual Studio 2022 Enterprise and the .NET 6 ASP.NET runtime are not automated here because this repo's install flow now targets Scoop.
 
 </details>
 

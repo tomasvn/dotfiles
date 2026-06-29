@@ -28,29 +28,50 @@ if (Test-Path $targetProfile) {
     if ($content -notmatch [regex]::Escape($dotLine)) {
         Add-Content -Path $targetProfile -Value "`n# Autoload repo profile`n$dotLine`n"
     }
-} else {
+}
+else {
     Set-Content -Path $targetProfile -Value "# PowerShell profile - autoload repo profile`n$dotLine`n"
 }
 
-# Optional: ensure CurrentUser execution policy allows local profiles
-if ((Get-ExecutionPolicy -Scope CurrentUser) -in @('Undefined','Restricted')) {
-    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+# Copy repo gitconfig into the user's home directory for Git to pick up automatically
+$repoGitConfig = Join-Path $PSScriptRoot '.gitconfig'
+$targetGitConfig = Join-Path $HOME '.gitconfig'
+if (Test-Path $repoGitConfig) {
+    if (Test-Path $targetGitConfig) {
+        Copy-Item -Path $targetGitConfig -Destination "$targetGitConfig.bak" -Force
+    }
+    Copy-Item -Path $repoGitConfig -Destination $targetGitConfig -Force
+}
+
+$pkgManagerScript = Join-Path $PSScriptRoot 'powershell\scripts\setup-pkg-manager.ps1'
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue) -and (Test-Path $pkgManagerScript)) {
+    & $pkgManagerScript
 }
 
 # packages list
 $packages = @(
     'googlechrome', 'git', 'vscode', 'spotify', 'powertoys', 'devtoys',
-    'powershell-core', 'visualstudio2022enterprise', 'lazygit',
-    'dotnet-6.0-aspnetruntime', 'cmder', 'poshgit'
+    'pwsh', 'lazygit', 'cmder', 'posh-git'
 )
+
+function Test-ScoopPackageInstalled {
+    param([string]$package)
+
+    try {
+        $installedPackages = @(scoop list 2>$null | ForEach-Object { ($_ -split '\s+')[0].Trim() } | Where-Object { $_ })
+        return $installedPackages -contains $package
+    }
+    catch {
+        return $false
+    }
+}
 
 function InstallPackage {
     param([string]$package)
     Write-Host "Installing $package..."
-    choco install -y $package
-    $command = Get-Command $package -ErrorAction SilentlyContinue
-    if ($command) { Write-Host "Package $package installed at: $($command.Source)" }
-    else { Write-Host "Package $package installed, but the command was not found." }
+    scoop install $package
+    if (Test-ScoopPackageInstalled -package $package) { Write-Host "Package $package installed." }
+    else { Write-Host "Package $package installed, but Scoop did not report it in the package list." }
 }
 
 function InstallAllPackages {
@@ -80,7 +101,8 @@ function Select-FromList {
         if ($visible.Count -gt 0) {
             if ($index -ge $visible.Count) { $index = $visible.Count - 1 }
             if ($index -lt 0) { $index = 0 }
-        } else { $index = 0 }
+        }
+        else { $index = 0 }
 
         for ($i = 0; $i -lt $visible.Count; $i++) {
             $item = $visible[$i]
@@ -92,9 +114,9 @@ function Select-FromList {
         $key = [System.Console]::ReadKey($true)
 
         switch ($key.Key) {
-            'UpArrow'    { if ($visible.Count -gt 0 -and $index -gt 0) { $index-- } }
-            'DownArrow'  { if ($visible.Count -gt 0 -and $index -lt $visible.Count - 1) { $index++ } }
-            'Spacebar'   {
+            'UpArrow' { if ($visible.Count -gt 0 -and $index -gt 0) { $index-- } }
+            'DownArrow' { if ($visible.Count -gt 0 -and $index -lt $visible.Count - 1) { $index++ } }
+            'Spacebar' {
                 if ($visible.Count -gt 0) {
                     $item = $visible[$index]
                     if ($selected.Contains($item)) { $selected.Remove($item) } else { $selected.Add($item) }

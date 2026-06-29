@@ -1,12 +1,9 @@
-# Only elevate if not being run from full-script-install
-if (-not $env:DOTFILES_FROM_FULL_INSTALL) {
-    if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-        exit
-    }
+# This requires administrator rights to edit the hosts file.
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Warning "Skipping localhost setup because this script is not running as Administrator."
+    return
 }
 
-# Run PowerShell as Administrator
 # Set the Hosts file path
 $hostsPath = "$env:windir\System32\drivers\etc\hosts"
 

@@ -1,11 +1,3 @@
-# Only elevate when not run from the orchestrator
-if (-not $env:DOTFILES_FROM_FULL_INSTALL) {
-    if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-        exit
-    }
-}
-
 $DevToolboxHeader = @'
   _____               _______          _ _                 
  |  __ \             |__   __|        | | |                
@@ -18,6 +10,11 @@ $DevToolboxHeader = @'
 
 Write-Host $DevToolboxHeader -ForegroundColor Cyan
 Write-Host "uninstall.ps1 starting..." -ForegroundColor Green
+
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+    Write-Warning "Scoop is not installed. Nothing to uninstall."
+    return
+}
 
 function Select-FromList {
     param([string[]]$items)
@@ -41,7 +38,8 @@ function Select-FromList {
         if ($visible.Count -gt 0) {
             if ($index -ge $visible.Count) { $index = $visible.Count - 1 }
             if ($index -lt 0) { $index = 0 }
-        } else { $index = 0 }
+        }
+        else { $index = 0 }
 
         for ($i = 0; $i -lt $visible.Count; $i++) {
             $item = $visible[$i]
@@ -51,9 +49,9 @@ function Select-FromList {
 
         $key = [System.Console]::ReadKey($true)
         switch ($key.Key) {
-            'UpArrow'   { if ($visible.Count -gt 0 -and $index -gt 0) { $index-- } }
+            'UpArrow' { if ($visible.Count -gt 0 -and $index -gt 0) { $index-- } }
             'DownArrow' { if ($visible.Count -gt 0 -and $index -lt $visible.Count - 1) { $index++ } }
-            'Spacebar'  {
+            'Spacebar' {
                 if ($visible.Count -gt 0) {
                     $item = $visible[$index]
                     if ($selected.Contains($item)) { $selected.Remove($item) } else { $selected.Add($item) }
@@ -79,22 +77,23 @@ function Select-FromList {
         }
     }
 
-    return ,$selected.ToArray()
+    return , $selected.ToArray()
 }
 
-# Gather installed Chocolatey packages reliably
+# Gather installed Scoop packages reliably
 try {
-    $installedPackages = choco list --local-only --no-color 2>$null |
-        ForEach-Object { ($_ -split '\|')[0].Trim() } |
-        Where-Object { $_ } |
-        Sort-Object -Unique
-} catch {
-    Write-Warning "Failed to query installed packages: $_"
+    $installedPackages = scoop list 2>$null |
+    ForEach-Object { ($_ -split '\|')[0].Trim() } |
+    Where-Object { $_ } |
+    Sort-Object -Unique
+}
+catch {
+    Write-Warning ("Failed to query installed packages: {0}" -f $_)
     return
 }
 
 if (-not $installedPackages -or $installedPackages.Count -eq 0) {
-    Write-Host "No Chocolatey packages found to uninstall." -ForegroundColor Yellow
+    Write-Host "No Scoop packages found to uninstall." -ForegroundColor Yellow
     return
 }
 
@@ -125,10 +124,11 @@ if (-not $selected -or $selected.Count -eq 0) {
 foreach ($pkg in $selected) {
     try {
         Write-Host "Uninstalling $pkg..." -ForegroundColor Green
-        choco uninstall -y $pkg 2>&1 | ForEach-Object { Write-Host $_ }
+        scoop uninstall $pkg 2>&1 | ForEach-Object { Write-Host $_ }
         Write-Host "Finished: $pkg" -ForegroundColor Cyan
-    } catch {
-        Write-Warning "Failed to uninstall $pkg: $_"
+    }
+    catch {
+        Write-Warning ("Failed to uninstall {0}: {1}" -f $pkg, $_)
     }
 }
 

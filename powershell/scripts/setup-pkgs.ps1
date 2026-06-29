@@ -1,4 +1,10 @@
-# Add packages from https://community.chocolatey.org/packages
+# Add packages from Scoop buckets
+
+$pkgManagerScript = Join-Path $PSScriptRoot 'setup-pkg-manager.ps1'
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue) -and (Test-Path $pkgManagerScript)) {
+    & $pkgManagerScript
+}
+
 $packages = @(
     'googlechrome',
     'git',
@@ -6,13 +12,23 @@ $packages = @(
     'spotify',
     'powertoys',
     'devtoys',
-    'powershell-core',
-    'visualstudio2022enterprise',
+    'pwsh',
     'lazygit',
-    'dotnet-6.0-aspnetruntime',
     'cmder',
-    'poshgit'
+    'posh-git'
 )
+
+function Test-ScoopPackageInstalled {
+    param([string]$package)
+
+    try {
+        $installedPackages = @(scoop list 2>$null | ForEach-Object { ($_ -split '\s+')[0].Trim() } | Where-Object { $_ })
+        return $installedPackages -contains $package
+    }
+    catch {
+        return $false
+    }
+}
 
 # Function to prompt for installation
 function InstallPackage {
@@ -23,16 +39,13 @@ function InstallPackage {
     $response = Read-Host -Prompt ("Do you want to install {0}? (y/n)" -f $package)
     if ($response -eq 'y') {
         Write-Host "Installing $package..."
-        choco install -y $package
+        scoop install $package
 
-        # Check if the command exists
-        $command = Get-Command $package -ErrorAction SilentlyContinue
-        if ($command) {
-            $installPath = $command.Source
-            Write-Host "Package $package installed at: $installPath"
+        if (Test-ScoopPackageInstalled -package $package) {
+            Write-Host "Package $package installed."
         }
         else {
-            Write-Host "Package $package installed, but the command was not found."
+            Write-Host "Package $package installed, but Scoop did not report it in the package list."
         }
     }
     else {
@@ -48,16 +61,13 @@ function InstallAllPackages {
 
     foreach ($package in $packages) {
         Write-Host "Installing $package..."
-        choco install -y $package
+        scoop install $package
 
-        # Check if the command exists
-        $command = Get-Command $package -ErrorAction SilentlyContinue
-        if ($command) {
-            $installPath = $command.Source
-            Write-Host "Package $package installed at: $installPath"
+        if (Test-ScoopPackageInstalled -package $package) {
+            Write-Host "Package $package installed."
         }
         else {
-            Write-Host "Package $package installed, but the command was not found."
+            Write-Host "Package $package installed, but Scoop did not report it in the package list."
         }
     }
 }
