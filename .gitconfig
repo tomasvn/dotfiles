@@ -3,6 +3,10 @@
   name = Ngoc Tu Nguyen
 [color "branch"]
   remote = yellow
+[core]
+	editor = code --wait
+	fscache = true
+	fsmonitor = true
 [push]
   autoSetupRemote = true
 [pager]
