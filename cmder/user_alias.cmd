@@ -27,6 +27,7 @@ gbr=git branch --remote
 gsl=git stash list
 gss=git status --short
 gsh=git stash show $1
+merge-into=cmd /c "setlocal enabledelayedexpansion && set _orig_branch=$(git symbolic-ref --short HEAD) && git checkout $1 && git pull && git checkout !_orig_branch! && git merge $1 && endlocal"
 
 @REM Build specific
 pn=pnpm
