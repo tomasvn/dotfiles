@@ -27,8 +27,8 @@ gbr=git branch --remote
 gsl=git stash list
 gss=git status --short
 gsh=git stash show $1
-@REM switch to target branch, pull latest, switch back, then merge target into original branch
-gmt=cmd /v:on /c "for /f %b in ('git branch --show-current') do (set _orig_branch=%b && git checkout $1 && git pull && git checkout !_orig_branch! && git merge $1)"
+;= switch to target branch, pull latest, then merge previous branch into target
+gmt=cmd /c "git switch $1 && git pull && git merge @{-1}"
 
 @REM Build specific
 pn=pnpm
