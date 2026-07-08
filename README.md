@@ -2,8 +2,6 @@
 
 - Different configuration files
 
-<br />
-
 ## Installation
 
 ### Powershell
