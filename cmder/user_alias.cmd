@@ -1,4 +1,4 @@
-@REM Nix
+;= Nix
 c=clear
 ..=cd ..
 .2=cd ../../
