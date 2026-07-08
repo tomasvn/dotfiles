@@ -5,7 +5,7 @@ c=clear
 .3=cd ../../../
 .4=cd ../../../../
 
-@REM Git alias
+;= Git alias
 ga=git add -A
 gc=git checkout
 gs=git status
@@ -30,7 +30,7 @@ gsh=git stash show $1
 ;= switch to target branch, pull latest, then merge previous branch into target
 gmt=cmd /c "git switch $1 && git pull && git merge @{-1}"
 
-@REM Build specific
+;= Build specific
 pn=pnpm
 pni=pnpm i
 pns=pnpm start
